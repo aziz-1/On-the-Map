@@ -16,8 +16,16 @@ extension UIViewController {
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem){
-        UdacityClient.deleteSession()
-        self.dismiss(animated: true, completion: nil)
+       
+        UdacityClient.deleteSession { (data, error) in
+            if data != nil {
+                self.dismiss(animated: true, completion: nil)
+            }
+            else{
+                self.showAlert(message: "Failed to Logout, Reason: \(String(describing: error?.localizedDescription))")
+            }
+        }
+      
     }
 
     

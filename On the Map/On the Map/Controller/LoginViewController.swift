@@ -29,18 +29,18 @@ class LoginViewController: UIViewController {
         if let username = emailTextField.text, let password =  passwordTextField.text
         {
         let credintials = UdacityCredentials(username: username, password: password)
-            UdacityClient.login(credentials: credintials) { (response) in
-                if response.account?.registered == true {
+            UdacityClient.login(credentials: credintials) { (response, error) in
+                if response!.account?.registered == true {
                     self.performSegue(withIdentifier: "loginSuccess", sender: nil)
                 }
-                else if response.status == 403 {
+                else if response!.status == 403 {
                     self.setLoggingIn(false)
                     self.showAlert(message: "Incorrect Username/Password")
                 }
-                else
+                else if response == nil
                 {
                    self.setLoggingIn(false)
-                    self.showAlert(message: "Login Failure. Reason: \(String(describing: response.error))")
+                    self.showAlert(message: "Login Failure. Reason: \(String(describing: error?.localizedDescription))")
                 }
             }
         }
@@ -70,6 +70,6 @@ extension UIViewController {
     func showAlert(message: String) {
         let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+         self.present(alertVC, animated: true, completion: nil)
     }
 }

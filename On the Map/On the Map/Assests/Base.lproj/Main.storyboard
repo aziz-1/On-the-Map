@@ -217,13 +217,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g5U-Gw-85q">
                                 <rect key="frame" x="0.0" y="286" width="375" height="381"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-lI-fTG">
-                                <rect key="frame" x="318" y="22" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelView:" destination="PbO-vs-Btz" eventType="touchUpInside" id="ZEf-BF-1Fp"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lay-4h-zAq">
                                 <rect key="frame" x="155" y="240" width="65" height="38"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="21"/>
@@ -247,24 +240,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-lI-fTG">
+                                <rect key="frame" x="311" y="20" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelView:" destination="PbO-vs-Btz" eventType="touchUpInside" id="ZEf-BF-1Fp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v9o-Cg-5za" firstAttribute="centerX" secondItem="Cdh-lu-rLF" secondAttribute="centerX" id="4Yt-MS-c8N"/>
                             <constraint firstItem="0j8-2x-NZy" firstAttribute="centerX" secondItem="g5U-Gw-85q" secondAttribute="centerX" constant="-1.5" id="7Wa-n1-7hy"/>
-                            <constraint firstItem="L0y-lI-fTG" firstAttribute="leading" secondItem="KV9-rP-gVJ" secondAttribute="leading" constant="318" id="BGn-dJ-qPH"/>
                             <constraint firstItem="KV9-rP-gVJ" firstAttribute="trailing" secondItem="g5U-Gw-85q" secondAttribute="trailing" id="Buw-9b-7Ap"/>
                             <constraint firstItem="BTA-Bg-m6y" firstAttribute="top" secondItem="v9o-Cg-5za" secondAttribute="bottom" constant="46" id="Hyc-NE-HOb"/>
                             <constraint firstItem="0j8-2x-NZy" firstAttribute="centerY" secondItem="g5U-Gw-85q" secondAttribute="centerY" id="KnO-fv-Nzs"/>
-                            <constraint firstItem="L0y-lI-fTG" firstAttribute="top" secondItem="KV9-rP-gVJ" secondAttribute="top" constant="2" id="LcQ-Sp-ivD"/>
                             <constraint firstItem="Cdh-lu-rLF" firstAttribute="top" secondItem="KV9-rP-gVJ" secondAttribute="top" constant="56" id="PqN-sW-nx6"/>
-                            <constraint firstItem="KV9-rP-gVJ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L0y-lI-fTG" secondAttribute="trailing" id="WnJ-cq-iDz"/>
                             <constraint firstItem="Cdh-lu-rLF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KV9-rP-gVJ" secondAttribute="leading" id="Wzq-ZP-dPy"/>
                             <constraint firstItem="BTA-Bg-m6y" firstAttribute="top" secondItem="ca5-ra-J2E" secondAttribute="bottom" constant="8" id="ZyX-Th-2Re"/>
                             <constraint firstItem="Cdh-lu-rLF" firstAttribute="centerX" secondItem="KV9-rP-gVJ" secondAttribute="centerX" id="a1n-a9-gDV"/>
                             <constraint firstItem="g5U-Gw-85q" firstAttribute="top" secondItem="Lay-4h-zAq" secondAttribute="bottom" constant="8" id="aLk-9n-EFf"/>
                             <constraint firstItem="v9o-Cg-5za" firstAttribute="top" secondItem="Cdh-lu-rLF" secondAttribute="bottom" constant="17.5" id="aeF-Pi-6AV"/>
                             <constraint firstItem="ca5-ra-J2E" firstAttribute="width" secondItem="Cdh-lu-rLF" secondAttribute="width" constant="40" id="de3-ws-8zI"/>
+                            <constraint firstItem="KV9-rP-gVJ" firstAttribute="trailing" secondItem="L0y-lI-fTG" secondAttribute="trailing" constant="16" id="eHJ-Jm-IuD"/>
                             <constraint firstItem="BTA-Bg-m6y" firstAttribute="centerX" secondItem="KV9-rP-gVJ" secondAttribute="centerX" id="g5c-TQ-cji"/>
                             <constraint firstItem="KV9-rP-gVJ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cdh-lu-rLF" secondAttribute="trailing" id="iIX-oV-kzU"/>
                             <constraint firstItem="ca5-ra-J2E" firstAttribute="centerX" secondItem="KV9-rP-gVJ" secondAttribute="centerX" id="iXy-MW-0jg"/>
@@ -274,6 +272,7 @@
                             <constraint firstItem="Lay-4h-zAq" firstAttribute="top" secondItem="BTA-Bg-m6y" secondAttribute="bottom" constant="1" id="s89-xM-WSk"/>
                             <constraint firstItem="g5U-Gw-85q" firstAttribute="top" secondItem="BTA-Bg-m6y" secondAttribute="bottom" constant="47" id="shK-Gw-CXO"/>
                             <constraint firstItem="ca5-ra-J2E" firstAttribute="top" secondItem="Cdh-lu-rLF" secondAttribute="bottom" constant="55.5" id="vCf-da-Nxf"/>
+                            <constraint firstItem="L0y-lI-fTG" firstAttribute="top" secondItem="KV9-rP-gVJ" secondAttribute="top" id="z13-mD-E7F"/>
                             <constraint firstItem="KV9-rP-gVJ" firstAttribute="bottom" secondItem="g5U-Gw-85q" secondAttribute="bottom" id="zsC-0p-Ig9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KV9-rP-gVJ"/>

@@ -63,14 +63,14 @@ class MapsViewController: UIViewController, MKMapViewDelegate {
     {
         ParseClient.getStudentsLocations { (response
             , error) in
-            if response.count > 0 {
+            if let response = response {
                 self.studentArray = response
         StudentModel.students = response
               self.handleCreateAnnotations()
             }
             else
             {
-                self.showAlert(message: "Failed to download locations.")
+                self.showAlert(message: "Failed to download locations, Reason: \(String(describing: error?.localizedDescription))")
             }
     }
         

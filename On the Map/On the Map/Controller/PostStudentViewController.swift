@@ -54,7 +54,7 @@ class PostStudentViewController: UIViewController, MKMapViewDelegate {
                         self.mapView.setRegion(MKCoordinateRegion(center: self.coordinates, span: MKCoordinateSpan(latitudeDelta: CLLocationDegrees(exactly: 0.002)!, longitudeDelta: CLLocationDegrees(exactly: 0.002)!)), animated: true)
                        
                         self.setFields(found: true)
-                      
+                      self.activityIndicator.stopAnimating()
                     }
                     
                 }
@@ -91,6 +91,9 @@ class PostStudentViewController: UIViewController, MKMapViewDelegate {
                 }
             }
         }
+        else {
+            self.showAlert(message: "Link cannot be empty")
+        }
     }
     
   
@@ -110,7 +113,7 @@ class PostStudentViewController: UIViewController, MKMapViewDelegate {
             self.findButton.isHidden = found
             self.locationTextField.isEnabled = !found
             self.locationTextField.tintColor = .gray
-            self.linkTextField.isEnabled = !found
+            self.linkTextField.isEnabled = found
             self.linkTextField.tintColor = .none
         }
     }

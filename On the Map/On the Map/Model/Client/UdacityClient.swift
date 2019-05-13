@@ -100,18 +100,21 @@ class UdacityClient {
         task.resume()
     }
     
-    class func login(credentials: UdacityCredentials, completion: @escaping (UdacityResponse) -> Void) {
+    class func login(credentials: UdacityCredentials, completion: @escaping (UdacityResponse?, Error?) -> Void) {
         taskForPostRequest(url: Endpoints.session.url, responseType: UdacityResponse.self, body: credentials) { (response, error) in
             if let response = response {
-                completion(response)
+                completion(response, nil)
                 
+            }
+            else {
+                completion(nil, error)
             }
 
             
         }
     }
     
-    class func deleteSession(){
+    class func deleteSession(completion: @escaping (Data?, Error?) -> Void)  {
         var request = URLRequest(url: Endpoints.session.url)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
@@ -125,10 +128,18 @@ class UdacityClient {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error…
-                return
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
             }
+            
+            DispatchQueue.main.async {
+                completion(data, nil)
+            }
+            
         }
         task.resume()
+        
     }
         
     

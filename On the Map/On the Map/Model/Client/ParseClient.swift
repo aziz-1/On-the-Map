@@ -116,7 +116,7 @@ class ParseClient {
         task.resume()
     }
     
-    class func getStudentsLocations(completion: @escaping ([StudentLocation], Error?) -> Void) {
+    class func getStudentsLocations(completion: @escaping ([StudentLocation]?, Error?) -> Void) {
         taskForGETRequest(url: Endpoints.getAllStudentLocation.url, responseType: StudnetLocationResult.self) { (response
             , error) in
             if let response = response {
@@ -124,7 +124,7 @@ class ParseClient {
                 completion(response.results, nil)
             }
             else {
-                completion([], error)
+                completion(nil, error)
             }
             
         }
@@ -161,7 +161,7 @@ class ParseClient {
         }
     }
     
-    class func updateStudent(objectId: String, updatedStudnet: StudentRequest, completion: @escaping (StudentLocation, Error?) -> Void) {
+    class func updateStudent(objectId: String, updatedStudnet: StudentRequest, completion: @escaping (StudentLocation?, Error?) -> Void) {
         
         
         taskForPostPutRequest(url: Endpoints.getAllStudentLocation.url
@@ -169,6 +169,10 @@ class ParseClient {
             if let response = response {
                 
                 completion(response, nil)
+            }
+            
+            else {
+                completion(nil, error)
             }
         }
     }
